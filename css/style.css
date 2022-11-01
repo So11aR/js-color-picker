@@ -58,6 +58,10 @@ main {
   cursor: pointer;
 }
 
+.col i {
+  pointer-events: none
+}
+
 .tips {
   position: absolute;
   top: -20px;
