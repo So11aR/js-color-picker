@@ -19,11 +19,11 @@ document.addEventListener('click', event => {
     node.classList.toggle('fa-lock-open')
     node.classList.toggle('fa-lock')
   } else if (type == 'copy') {
-    copyToClickboard(event.target.text)
+    copyToClickboard(event.target.textContent)
     let span = document.createElement("span");
     span.classList.add("tips");
     span.innerHTML = event.target.getAttribute("data-text");
-    event.target.appendChild(span);
+    event.target.appendChild(span); 
     window.setTimeout(removeToolTips, 900);
   }
 })
