@@ -14,37 +14,37 @@ document.addEventListener('click', event => {
 
     node.classList.toggle('fa-lock-open')
     node.classList.toggle('fa-lock')
-  } else if(type == 'copy') {
-    
+  } else if (type == 'copy') {
+
     copyToClickboard(event.target.text)
   }
 })
-
-// function generateRandomColor() {
-//   const hexCodes = '0123456789ABCDEF'
-//   let color = ''
-
-//   for(let i = 0; i < 6; i++) {
-//     color += hexCodes[Math.floor(Math.random() * hexCodes.length)]
-//   }
-
-//   return '#' + color
-// }
 
 function copyToClickboard(text) {
   return navigator.clipboard.writeText(text)
 }
 
-function setRandomColors() {
-  cols.forEach((col) => {
+function setRandomColors(isInitial) {
+  const colors = isInitial ? getColorsFromHash() : []
+
+  cols.forEach((col, index) => {
     const isLocked = col.querySelector('i').classList.contains('fa-lock')
     const text = col.querySelector('h2')
-    console.log(text)
     const button = col.querySelector('button')
-    const color = chroma.random()
 
-    if(isLocked) {
+    if (isLocked) {
+      colors.push(text.textContent)
       return
+    }
+
+    const color = isInitial 
+      ? colors[index]
+        ? colors[index]
+        : chroma.random()
+      : chroma.random()
+
+    if (!isInitial) {
+      colors.push(color)
     }
 
     text.textContent = color
@@ -53,6 +53,8 @@ function setRandomColors() {
     setTextColor(text, color)
     setTextColor(button, color)
   })
+
+  updateColorHash(colors)
 }
 
 function setTextColor(text, color) {
@@ -60,4 +62,16 @@ function setTextColor(text, color) {
   text.style.color = luminance > 0.5 ? 'black' : 'white'
 }
 
-setRandomColors()
+function updateColorHash(colors = []) {
+  document.location.hash = colors.map((col) => col.toString().substring(1)).join('-')
+}
+
+function getColorsFromHash() {
+  if (document.location.hash.length > 1) {
+    return document.location.hash.substring(1).split('-').map(color => '#' + color)
+  }
+
+  return []
+}
+
+setRandomColors(true)
