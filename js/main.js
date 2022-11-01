@@ -1,5 +1,9 @@
 const cols = document.querySelectorAll('.col')
 
+function removeToolTips() {
+  document.querySelector(".tips").remove();
+}
+
 document.addEventListener('keydown', event => {
   event.preventDefault()
   if (event.code.toLowerCase() == 'space') {
@@ -15,8 +19,12 @@ document.addEventListener('click', event => {
     node.classList.toggle('fa-lock-open')
     node.classList.toggle('fa-lock')
   } else if (type == 'copy') {
-
     copyToClickboard(event.target.text)
+    let span = document.createElement("span");
+    span.classList.add("tips");
+    span.innerHTML = event.target.getAttribute("data-text");
+    event.target.appendChild(span);
+    window.setTimeout(removeToolTips, 900);
   }
 })
 
@@ -37,7 +45,7 @@ function setRandomColors(isInitial) {
       return
     }
 
-    const color = isInitial 
+    const color = isInitial
       ? colors[index]
         ? colors[index]
         : chroma.random()
