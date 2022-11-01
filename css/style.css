@@ -64,3 +64,12 @@ main {
   transform: translate(-50%, -50%);
   left: 50%;
 }
+
+@media (max-width: 902px) {
+  main {
+    flex-direction: column;
+  }
+  .col {
+    justify-content: center;
+  }
+}
