@@ -1,4 +1,16 @@
 const cols = document.querySelectorAll('.col')
+const refreshBtn = document.querySelector('.refresh')
+
+refreshBtn.addEventListener('click', event => {
+  event.preventDefault()
+  setRandomColors()
+  refreshBtn.classList.add('animate__rotateIn')
+})
+
+refreshBtn.addEventListener('animationend', event => {
+  event.preventDefault()
+  refreshBtn.classList.remove('animate__rotateIn')
+})
 
 function removeToolTips() {
   document.querySelector(".tips").remove();
@@ -23,7 +35,7 @@ document.addEventListener('click', event => {
     let span = document.createElement("span");
     span.classList.add("tips");
     span.innerHTML = event.target.getAttribute("data-text");
-    event.target.appendChild(span); 
+    event.target.appendChild(span);
     window.setTimeout(removeToolTips, 900);
   }
 })

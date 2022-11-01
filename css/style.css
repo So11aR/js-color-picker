@@ -8,9 +8,15 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+}
+
 .app-title {
-  line-height: 56px;
-  padding-left: 7px;
+  line-height: 1.5;
   text-align: left;
   color: #7d7c83;
   font-size: 15px;
@@ -69,10 +75,35 @@ main {
   left: 50%;
 }
 
+.refresh {
+  outline: none;
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  color: #000;
+  transition: background 0.3s;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.refresh:hover {
+  background: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
 @media (max-width: 902px) {
+  header {
+    flex-direction: column;
+  }
+
+  .app-title {
+    text-align: center;
+  }
+
   main {
     flex-direction: column;
   }
+
   .col {
     justify-content: center;
   }
