@@ -6,8 +6,19 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  min-height: 100vh;
+}
+
+.app-title {
+  line-height: 56px;
+  padding-left: 7px;
+  text-align: left;
+  color: #7d7c83;
+  font-size: 15px;
+}
+
+main {
   display: flex;
+  min-height: calc(100vh - 56px);
 }
 
 .col {
@@ -27,7 +38,7 @@ body {
 }
 
 .col h2:hover {
-  background: rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
 
@@ -43,7 +54,7 @@ body {
 }
 
 .col button:hover {
-  background: rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
 
