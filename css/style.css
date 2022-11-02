@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
   font-family: 'Roboto', sans-serif;
 }
 
@@ -37,7 +37,8 @@ header i {
 
 main {
   display: flex;
-  height: calc(100vh - 56px);
+  min-height: -webkit-fill-available;
+  min-height: calc(100vh - 56px);
 }
 
 .col {
@@ -105,7 +106,7 @@ main {
 
   main {
     flex-direction: column;
-    height: calc(100vh - 84px);
+    min-height: calc(100vh - 84px);
   }
 
   .app-title {
@@ -148,6 +149,6 @@ main {
 @media (max-width: 378px) {
   main {
     flex-direction: column;
-    height: calc(100vh - 106.5px);
+    min-height: calc(100vh - 106.5px);
   }
 }
