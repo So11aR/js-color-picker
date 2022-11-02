@@ -15,11 +15,23 @@ header {
   padding: 12px;
 }
 
+header i {
+  pointer-events: none
+}
+
 .app-title {
   line-height: 1.5;
   text-align: left;
   color: #7d7c83;
   font-size: 15px;
+}
+
+.refresh {
+  display: none;
+}
+
+.refresh-btn__text {
+  display: none;
 }
 
 main {
@@ -81,17 +93,10 @@ main {
   background: transparent;
   font-size: 1.5rem;
   color: #000;
-  transition: background 0.3s;
-  padding: 10px;
-  border-radius: 10px;
+  margin-top: 10px;
 }
 
-.refresh:hover {
-  background: rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-}
-
-@media (max-width: 902px) {
+@media (max-width: 992px) {
   header {
     flex-direction: column;
   }
@@ -100,11 +105,39 @@ main {
     text-align: center;
   }
 
+  .refresh {
+    display: block;
+  }
+
+  .refresh-btn__text {
+    display: inline;
+  }
+
+  .key-btn__text {
+    display: none;
+  }
+
   main {
     flex-direction: column;
   }
 
   .col {
     justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .col h2 {
+    font-size: 14px;
+    padding: 8px;
+  }
+  .col h2:hover {
+    padding: 8px;
+  }
+  .col button {
+    font-size: 14px;
+  }
+  .tips {
+    top: -12px;
   }
 }
