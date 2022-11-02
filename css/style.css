@@ -13,6 +13,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 12px;
+  height: 56px;
 }
 
 header i {
@@ -99,6 +100,12 @@ main {
 @media (max-width: 992px) {
   header {
     flex-direction: column;
+    height: 100%;
+  }
+
+  main {
+    flex-direction: column;
+    min-height: calc(100vh - 84px);
   }
 
   .app-title {
@@ -115,10 +122,6 @@ main {
 
   .key-btn__text {
     display: none;
-  }
-
-  main {
-    flex-direction: column;
   }
 
   .col {
@@ -139,5 +142,12 @@ main {
   }
   .tips {
     top: -12px;
+  }
+}
+
+@media (max-width: 378px) {
+  main {
+    flex-direction: column;
+    min-height: calc(100vh - 106.5px);
   }
 }
